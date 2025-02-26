@@ -66,6 +66,10 @@ def responder_pregunta(pregunta):
     if not conceptos_encontrados:
         return "No tengo información exacta sobre eso, pero puedo explicarte cómo funciona en CRM si me das más contexto."
     
+    if "por qué es importante" in pregunta or "importancia de" in pregunta or "por qué es importante un" in pregunta or "importancia de la" in pregunta or "por qué es importante la" in pregunta or "importancia de el" in pregunta:
+        nodo = conceptos_encontrados[0]
+        return f"La importancia de {nodo} radica en su capacidad para transformar datos en estrategias efectivas, mejorando la comunicación con los clientes y facilitando decisiones basadas en información precisa."    
+    
     if "qué es" in pregunta:
         return generar_descripcion(conceptos_encontrados[0])
     
